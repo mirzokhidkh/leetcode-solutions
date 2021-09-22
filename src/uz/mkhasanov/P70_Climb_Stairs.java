@@ -3,7 +3,7 @@ package uz.mkhasanov;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem70 {
+public class P70_Climb_Stairs {
     public static void main(String[] args) {
         System.out.println(climbStairs(1));
         System.out.println(climbStairs(2));

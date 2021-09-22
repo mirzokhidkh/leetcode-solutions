@@ -2,7 +2,7 @@ package uz.mkhasanov;
 
 import java.util.Arrays;
 
-public class T509_Fibonacci_number {
+public class P509_Fibonacci_number {
     public static void main(String[] args) {
 
         System.out.println(fib(0));
