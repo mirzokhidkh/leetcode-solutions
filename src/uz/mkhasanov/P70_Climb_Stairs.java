@@ -1,6 +1,7 @@
 package uz.mkhasanov;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class P70_Climb_Stairs {
@@ -8,43 +9,26 @@ public class P70_Climb_Stairs {
         System.out.println(climbStairs(1));
         System.out.println(climbStairs(2));
         System.out.println(climbStairs(3));
-//        System.out.println(climbStairs(4));
+        System.out.println(climbStairs(4));
 //        System.out.println(climbStairs(44));
     }
 
-//    public static int climbStairs(int n) {
-//        if (n == 0) {
-//            return 1;
-//        } else if (n < 0) {
-//            return 0;
-//        }
-//        return climbStairs(n - 1) + climbStairs(n - 2);
-//    }
-
     public static int climbStairs(int n) {
-//        if (n < 2) {
-//            return 1;
-//        }
-//        return climbStairs(n - 1) + climbStairs(n - 2);
-
-        List<Integer> arr = new ArrayList<>();
-        climbStairs(n, arr);
-        return arr.get(n - 1);
+        int[] arr = new int[]{1, 2}; //array that saves distinct ways numbers to climb to the top for each step by ascending order
+        if (n - 1 < 2) {
+            return arr[n - 1];
+        } else if (n > arr.length) {
+            arr = Arrays.copyOf(arr, n);
+        }
+        climbStairs(2, arr);
+        return arr[n-1];
     }
 
-    public static void climbStairs(int n, List<Integer> arr) {
-        if (!arr.contains(n)) {
-//            return;
-//        }
-            if (n < 2) {
-                arr.add(1);
-                return;
-            } else {
-                arr.add(arr.get(n - 1));
-            }
-            climbStairs(n - 1, arr);
-            climbStairs(n - 2, arr);
-        }
+    public static void climbStairs(int pos, int[] arr) {
+        if (pos + 1 > arr.length)
+            return;
+        arr[pos] = arr[pos - 1] + arr[pos - 2];
+        climbStairs(pos + 1, arr);
     }
 
 }
