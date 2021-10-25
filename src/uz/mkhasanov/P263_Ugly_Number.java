@@ -6,9 +6,10 @@ import java.util.List;
 public class P263_Ugly_Number {
     public static void main(String[] args) {
 
-//        System.out.println(isUgly(6));
-//        System.out.println(isUgly(8));
-//        System.out.println(isUgly(14));
+        System.out.println(isUgly(6));
+        System.out.println(isUgly(8));
+        System.out.println(isUgly(14));
+        System.out.println(isUgly(1332185066));
 
 //        System.out.println(isPrime(1));
 //        System.out.println(isPrime(2));
@@ -26,40 +27,18 @@ public class P263_Ugly_Number {
         } else if (n <= 0) {
             return false;
         }
-        List<Integer> primes = new ArrayList<Integer>() {{
-            add(2);
-            add(3);
-            add(5);
-        }};
 
-        boolean hasPrime = false;
+        int[] factors = new int[]{2, 3, 5};
 
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 0) {
-                if (isPrime(i)) {
-                    hasPrime = true;
-                    if (!primes.contains(i)) {
-                        return false;
-                    }
-                }
+        for (int factor : factors) {
+            while (n > 1 && n % factor == 0) {
+                n /= factor;
             }
         }
 
-        return hasPrime;
+
+        return n == 1;
     }
 
-    public static boolean isPrime(int n) {
-        if (n == 2) {
-            return true;
-        } else if (n == 1 || (n % 2 == 0)) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
 
 }
