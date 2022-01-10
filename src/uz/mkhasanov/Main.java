@@ -1,10 +1,13 @@
 package uz.mkhasanov;
 
-import java.util.UUID;
+import java.text.ParseException;
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("aldjsfjlasfhk");
+    public static void main(String[] args) throws ParseException {
+
+        System.out.println((char)((int)'a' + 1));
     }
+
 }
