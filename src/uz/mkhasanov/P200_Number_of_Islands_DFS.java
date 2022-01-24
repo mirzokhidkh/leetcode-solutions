@@ -3,7 +3,7 @@ package uz.mkhasanov;
 import java.text.ParseException;
 import java.util.*;
 
-public class P200_Number_of_Islands {
+public class P200_Number_of_Islands_DFS {
 
     public static void main(String[] args) throws ParseException {
 
@@ -24,6 +24,7 @@ public class P200_Number_of_Islands {
 
     }
 
+    // APPROACH - BFS
     public static int numIslands(char[][] grid) {
         int count = 0;
 
