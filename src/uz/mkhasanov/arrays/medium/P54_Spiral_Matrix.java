@@ -24,30 +24,6 @@ public class P54_Spiral_Matrix {
 
         int r = 0, head = r, tail = r + 1;
 
-        while (k < N * M) {
-            int c = head;
-            while (c < N) {
-                System.out.println(matrix[r][c]);
-                result.add(matrix[r][c]);
-                k++;
-                if (c == N - 1) {
-                    r++;
-                } else if (r == M - 1) {
-                    r--;
-                } else if (c == 0)
-                    r--;
-                else if (r == tail) {
-                    r = c + 1;
-                    head = r;
-                    tail = head + 1;
-                } else {
-                    c++;
-                }
-            }
-            N -= 2;
-            M -= 2;
-
-        }
 
 
         return result;
