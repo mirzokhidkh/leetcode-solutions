@@ -1,13 +1,12 @@
 package uz.mkhasanov;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println('1'-'0');
-        System.out.println('1'-'A');
-        System.out.println((int)'1');
-
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.println(i);
+            }
+        }
     }
+
 }
