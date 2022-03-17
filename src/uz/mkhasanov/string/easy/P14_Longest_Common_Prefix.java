@@ -9,22 +9,20 @@ public class P14_Longest_Common_Prefix {
     }
 
     public static String longestCommonPrefix(String[] strs) {
-        String a = strs[0];
-        if (strs.length == 1) return a;
+        String res = strs[0];
+        if (strs.length == 1) return res;
         for (int i = 1; i < strs.length; i++) {
             String s = strs[i];
             int j;
-            int l = Math.min(s.length(), a.length());
+            int l = Math.min(s.length(), res.length());
             for (j = 0; j < l; j++) {
-                if (a.charAt(j) != s.charAt(j)) {
+                if (res.charAt(j) != s.charAt(j)) {
                     break;
                 }
             }
-            a = s.substring(0, j);
-            if (i == strs.length - 1)
-                return a.substring(0, j);
+            res = s.substring(0, j);
         }
-        return "";
+        return res;
     }
 
 }
