@@ -1,4 +1,4 @@
-package uz.mkhasanov.arrays.easy;
+package uz.mkhasanov.arrays.medium;
 
 import java.util.Arrays;
 
@@ -15,18 +15,18 @@ public class P167_Two_Sum_II_Input_array_is_sorted {
 
     public static int[] twoSum(int[] numbers, int target) {
         int[] indices = new int[2];
-        int i = 0, j = numbers.length - 1;
-        while (i < j) {
-            if (numbers[j] > target && j > 1) {
-                j--;
+        int l = 0, r = numbers.length - 1;
+        while (l < r) {
+            if (numbers[r] > target && r > 1) {
+                r--;
             } else {
-                if (numbers[i] + numbers[j] == target) {
-                    indices = new int[]{i + 1, j + 1};
+                if (numbers[l] + numbers[r] == target) {
+                    indices = new int[]{l + 1, r + 1};
                     break;
-                }else if (numbers[i] + numbers[j] > target) {
-                    j--;
+                }else if (numbers[l] + numbers[r] > target) {
+                    r--;
                 }else {
-                    i++;
+                    l++;
                 }
             }
         }
