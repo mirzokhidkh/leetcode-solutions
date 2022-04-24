@@ -9,14 +9,11 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 
-        Stack<Integer> myStack = new Stack<>();
-        myStack.push(5);
-        myStack.push(6);
-        myStack.push(7);
+        List<Integer> list = new ArrayList<>();
 
-        System.out.println(myStack);
-        myStack.pop();
-        System.out.println(myStack);
+        for (Integer integer : list) {
+
+        }
 
 
     }
