@@ -9,12 +9,6 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 
-        List<Integer> list = new ArrayList<>();
-
-        for (Integer integer : list) {
-
-        }
-
 
     }
 
