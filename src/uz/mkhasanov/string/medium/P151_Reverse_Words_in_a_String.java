@@ -1,6 +1,7 @@
 package uz.mkhasanov.string.medium;
 
 public class P151_Reverse_Words_in_a_String {
+
     public static void main(String[] args) {
         String s = "aa bb cc";
         String s2 = "  hello world  ";
