@@ -12,13 +12,8 @@ public class P1089_Duplicate_Zeros {
 
             if (arr[i] == 0) {
 
-                for (int j = arr.length - 2; j > i; j--) {
-                    arr[j + 1] = arr[j];
-                }
-
-                if (i + 1 < arr.length) {
-                    arr[i + 1] = 0;
-                    i++;
+                for (int j = arr.length - 1; j > i; j--) {
+                    arr[j ] = arr[j-1];
                 }
 
             }

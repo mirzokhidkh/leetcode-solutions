@@ -1,12 +1,21 @@
 package uz.mirzokhidkh;
 
-import java.text.ParseException;
-
 public class Solution {
 
-    public static void main(String[] args) throws ParseException {
-        String s = "52";
-        System.out.println(s.substring(s.length()-1));
+    public static void main(String[] args) {
+
+        for (int i =1; i<=3; i++){
+            System.out.println("i="+i);
+            if(i%2==0){
+                i++;
+
+                System.out.println("j="+i);
+            }
+
+
+        }
+
+
     }
 
 
