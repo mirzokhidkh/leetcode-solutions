@@ -1,6 +1,7 @@
 package uz.mirzokhidkh.tree.medium;
 
-import java.text.ParseException;
+import uz.mirzokhidkh.bfs.medium.P200_Number_of_Islands;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,21 +9,30 @@ import java.util.Queue;
 
 public class P200_Number_of_Islands_BFS {
 
-    public static void main(String[] args) throws ParseException {
-
-        System.out.println(numIslands(new char[][]{
+    public static void main(String[] args) {
+        char[][] grid1 = new char[][]{
                 {'1', '1', '1', '1', '0'},
                 {'1', '1', '0', '1', '0'},
                 {'1', '1', '0', '0', '0'},
                 {'0', '0', '0', '0', '0'}
-        }));//1
+        };
 
-        System.out.println(numIslands(new char[][]{
+        char[][] grid2 = new char[][]{
                 {'1', '1', '0', '0', '0'},
                 {'1', '1', '0', '0', '0'},
                 {'0', '0', '1', '0', '0'},
                 {'0', '0', '0', '1', '1'}
-        }));//3
+        };
+//        System.out.println(numIslands(grid1));//1
+
+        long start = System.currentTimeMillis();
+        System.out.println(numIslands(grid2));//3
+        System.out.println(System.currentTimeMillis() - start);
+
+        start = System.currentTimeMillis();
+        P200_Number_of_Islands obj = new P200_Number_of_Islands();
+        System.out.println(obj.numIslands(grid2));
+        System.out.println(System.currentTimeMillis() - start);
 
 
     }
@@ -50,6 +60,7 @@ public class P200_Number_of_Islands_BFS {
         visited[i][j] = true;
 
         while (!queue.isEmpty()) {
+
             List<Integer> cur = queue.poll();
             Integer cur_i = cur.get(0);
             Integer cur_j = cur.get(1);
