@@ -5,18 +5,19 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println("abs".substring(3));
-        int i = '9'-'0';
-        System.out.println("11"+(i-1)+"1");
-        System.out.println("11"+'9'+"1");
+        Queue<Integer> queue = new LinkedList<>();
 
-        String lock = "11";
+        int squareNum=1, j=3;
+        while(squareNum<=12){
+            queue.offer(squareNum);
+            squareNum+=j;
+            j+=2;
+        }
 
-        Queue<Queue<String>> queue = new LinkedList<>();
-        Queue<String> q = new LinkedList<>();
-        q.offer(lock);
-        queue.offer(q);
-        System.out.println((Collections.singletonList("s")));
+        System.out.println(queue);
+        System.out.println(queue.contains(1));
+
+
 
 //        String[] deadends = new String[]{"1212"};
 //        Set<String> set = new HashSet<>(Arrays.asList(deadends));
