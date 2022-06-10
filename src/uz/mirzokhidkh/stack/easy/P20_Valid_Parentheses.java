@@ -1,4 +1,4 @@
-package uz.mirzokhidkh.string.easy;
+package uz.mirzokhidkh.stack.easy;
 
 import java.text.ParseException;
 import java.util.HashMap;

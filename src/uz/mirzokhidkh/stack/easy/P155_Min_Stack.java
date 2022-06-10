@@ -1,4 +1,4 @@
-package uz.mirzokhidkh.arrays.easy;
+package uz.mirzokhidkh.stack.easy;
 
 import java.util.ArrayList;
 import java.util.List;
