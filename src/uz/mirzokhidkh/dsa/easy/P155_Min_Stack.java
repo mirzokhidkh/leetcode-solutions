@@ -1,4 +1,4 @@
-package uz.mirzokhidkh.dsa;
+package uz.mirzokhidkh.dsa.easy;
 
 public class P155_Min_Stack {
 
