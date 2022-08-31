@@ -46,7 +46,11 @@ class MyHashSet {
                 return;
             }
             curr.next = new Node(key);
+
+
         }
+
+
 
     }
 
