@@ -6,6 +6,7 @@ public class Selection_Sort {
         // Mutates arr so that it is sorted via selecting the minimum element and
         // swapping it with the corresponding index
         int min_index;
+
         for (int i = 0; i < arr.length; i++) {
             min_index = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -18,6 +19,7 @@ public class Selection_Sort {
             arr[min_index] = arr[i];
             arr[i] = temp;
         }
+
     }
 
 
