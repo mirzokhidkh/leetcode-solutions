@@ -9,16 +9,22 @@ class ListNode {
         next = null;
     }
 
+//    public String toString() {
+//        return val + " => " + next;
+//    }
+
 }
 
 
 public class P141_Linked_List_Cycle {
+
     boolean hasCycle(ListNode head) {
 
         ListNode slow = head;
         ListNode fast = head;
 
         while (fast != null && fast.next != null) {
+
             slow = slow.next;
             fast = fast.next.next;
 
