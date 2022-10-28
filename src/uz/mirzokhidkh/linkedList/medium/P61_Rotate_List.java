@@ -1,5 +1,7 @@
 package uz.mirzokhidkh.linkedList.medium;
 
+import uz.mirzokhidkh.Util.ListNode;
+
 public class P61_Rotate_List {
     public ListNode rotateRight(ListNode head, int k) {
         if (k == 0 || head == null) return head;

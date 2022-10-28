@@ -1,5 +1,7 @@
 package uz.mirzokhidkh.linkedList.medium;
 
+import uz.mirzokhidkh.Util.ListNode;
+
 public class P328_Odd_Even_Linked_List {
 
 

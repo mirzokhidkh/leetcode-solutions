@@ -1,5 +1,7 @@
 package uz.mirzokhidkh.linkedList.medium;
 
+import uz.mirzokhidkh.Util.ListNode;
+
 public class P2_Add_Two_Numbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

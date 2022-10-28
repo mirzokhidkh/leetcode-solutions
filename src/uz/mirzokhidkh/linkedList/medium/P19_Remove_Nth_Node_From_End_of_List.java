@@ -1,5 +1,7 @@
 package uz.mirzokhidkh.linkedList.medium;
 
+import uz.mirzokhidkh.Util.ListNode;
+
 public class P19_Remove_Nth_Node_From_End_of_List {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {

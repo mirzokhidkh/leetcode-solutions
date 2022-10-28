@@ -1,20 +1,9 @@
 package uz.mirzokhidkh.linkedList.medium;
 
 
+import uz.mirzokhidkh.Util.ListNode;
+
 import java.util.Objects;
-
-class ListNode {
-
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
 
 public class P142_Linked_List_Cycle_II {
 
