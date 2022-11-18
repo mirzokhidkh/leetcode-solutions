@@ -24,7 +24,7 @@ public class P119_Pascal_s_Triangle_II {
 //    }
 
 
-    //MEMOIZATION approach
+    //MEMOIZATION approach using 2D array
 
     public List<Integer> getRow(int rowIndex) {
         int[][] memo = new int[rowIndex + 1][rowIndex + 1];
