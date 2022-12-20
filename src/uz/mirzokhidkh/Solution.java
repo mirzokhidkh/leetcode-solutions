@@ -14,5 +14,6 @@ public class Solution {
         System.out.println('B'-'A'+27);
         System.out.println('C'-'A'+27);
 
+
     }
 }
