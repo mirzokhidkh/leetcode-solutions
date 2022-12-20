@@ -15,5 +15,6 @@ public class Solution {
         System.out.println('C'-'A'+27);
 
 
+
     }
 }
