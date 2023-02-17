@@ -30,11 +30,11 @@ import java.util.Stack;
 
 public class P144_Binary_Tree_Preorder_Traversal {
     public static void main(String[] args) {
-        TreeNode tree = new TreeNode(1);
-        tree.left = new TreeNode(2);
-        tree.right = new TreeNode(3);
-        tree.left.left = new TreeNode(4);
-        tree.left.right = new TreeNode(5);
+        TreeNode tree = new TreeNode(3);
+        tree.left = new TreeNode(1);
+//        tree.right = new TreeNode(3);
+//        tree.left.left = new TreeNode(1);
+        tree.left.right = new TreeNode(2);
 
         System.out.println(preorderTraversal(tree)); // EXPECTED VALUE: [1, 2, 4,5, 3]
     }
