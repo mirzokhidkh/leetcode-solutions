@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.HashMap;
 
 public class Example {
 
@@ -19,14 +20,22 @@ public class Example {
 //        ZonedDateTime parse = ZonedDateTime.parse(str);
 //        System.out.println(ZonedDateTime.parse(str));
 
-        String str2 = "2021-08-02";
-        String str1 = "2021-08-02";
-        String str3 = "2021-08-02";
-        LocalDate localDate = LocalDate.parse(str2);
+//        String str2 = "2021-08-02";
+//        String str1 = "2021-08-02";
+//        String str3 = "2021-08-02";
+//        LocalDate localDate = LocalDate.parse(str2);
 //        System.out.println(localDate);
 
 
 //        System.out.println(str);
+
+
+        HashMap<Integer,Integer> map =  new HashMap<>();
+        map.put(2,4);
+        map.put(1,4);
+        map.put(3,9);
+
+        System.out.println(map.get(4));
 
 
     }
