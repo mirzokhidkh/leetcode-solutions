@@ -4,48 +4,42 @@ public:
     int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
         priority_queue<int> maxHeap;
 
-        //PLAN
-        //find all variations and push index to maxHeap step by step until there are no ladders and bricks
-        //finally return the top of th maxHeap which the furthest building index
+        //RECURSIVE APPROACH
+        //1 => find all variations and push index to maxHeap step by step until there are no ladders and bricks
 
-        helper(heights,0,bricks,ladders,maxHeap)
-        return maxHeap.top();
+        //2 => finally return the top of th maxHeap which the furthest building index
+
+        return helper(heights,0,bricks,ladders);
+        // return maxHeap.top();
+        // return max(2,3);
     }
 
-    int helper(vector<int>& heights,int i, int bricks, int ladders){
+    int helper(const vector<int>& h,int i, int b, int l){
+        int n = h.size();
 
 
+        if((b <= 0 && l == 0 && (h[i+1] - h[i]) > 0) || i == n-1){
+            return i;
+        }
+        int dif = h[i+1] - h[i];
+
+        if(dif > 0){
+            int v1 = 0,v2 = 0;
+            if(b > 0 && b >= dif){
+                v1 = helper(h,i+1,b-dif,l);
+            }else if(l == 0){
+                 v1 = i;
+            }
+
+            if(l > 0){
+                v2 = helper(h,i+1,b,l-1);
+            }
+
+            return max(v1,v2);
+        }else if(b >= 0 || l >= 0){
+            return helper(h,i+1,b,l);
+        }
+       return -1;
     }
-
 
 };
-
-
-//class Solution {
-//public:
-//    int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
-//
-//        int i;
-//        for(i=0; i<heights.size()-1; i++){
-//            if(heights[i+1] <= heights[i]){
-//                continue;
-//            }
-//
-//            if(bricks == 0 && ladders == 0 ){
-//                return i;
-//            }
-//
-//
-//            int dif = heights[i+1]-heights[i];
-//
-//            if(bricks >= dif){
-//                bricks -= dif;
-//            }else if(ladders != 0){
-//                --ladders;
-//            }
-//        }
-//
-//        return i;
-//    }
-//};
-//
