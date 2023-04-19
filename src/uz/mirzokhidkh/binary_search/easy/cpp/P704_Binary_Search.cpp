@@ -1,10 +1,8 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-
         return binarySearch(nums, target, 0, nums.size()-1);
     }
-
 
     int binarySearch(vector<int>& nums, int x, int l, int r){
 
