@@ -33,6 +33,7 @@ public class Solution {
             System.out.println("56a 56b da xato ");
         }
 
+
         if (check) {
             check = check(
                     new String[]{null, "121313", "lsmlad"},//58a
