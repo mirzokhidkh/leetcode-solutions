@@ -11,15 +11,13 @@ public:
 
             if(nums[m] == x){
                 return m;
-            }
-
-            if(x > nums[m]){
+            }else if(x > nums[m]){
                 return binarySearch(nums,x,m+1,r);
+            }else{
+                return binarySearch(nums,x,l,m-1);
             }
 
-            return binarySearch(nums,x,l,m-1);
         }
-
         return -1;
     }
 };
