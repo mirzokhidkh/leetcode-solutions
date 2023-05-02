@@ -4,29 +4,39 @@ public:
         int n = nums.size()-1;
         vector<int> res;
         int ind = binarySearch(nums,x);
+        cout << "ind = "<<ind<<endl;
+        cout << "nums["<<ind<<"] = " << nums[ind] << endl;
         int l = ind-1, r= ind+1;
-        res.push_back(nums[ind]);
-        while(k > 1 && l >= 0 && r <= n){
+
+        while(r-l != k+1 && l >= 0 && r <= n){
             if(abs(nums[l]-x) <= abs(nums[r]-x)){
-                res.insert(res.begin()+0, nums[l]);
                 l--;
             }else{
-                res.push_back(nums[r]);
                 r++;
             }
+        }
+
+        cout << "l = "<<l<<endl;
+        cout << "r = "<<r<<endl;
+
+        if(l < 0){
+            l = 0;
+            r = k;
+        }else if(r > n){
+            l = n - k + 1;
+            r = n + 1;
+        }
+
+        if(r - l > k){
+            l = l+1;
+        }
+
+        while(l < r && l >= 0){
+            res.push_back(nums[l]);
+            l++;
             k--;
         }
 
-        while(k > 1){
-            if(l < 0){
-                res.push_back(nums[r]);
-                r++;
-            }else{
-                res.insert(res.begin()+0, nums[l]);
-                l--;
-            }
-            k--;
-        }
         return res;
     }
 
