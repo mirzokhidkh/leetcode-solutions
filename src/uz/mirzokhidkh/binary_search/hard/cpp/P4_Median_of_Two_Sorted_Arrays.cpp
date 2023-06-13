@@ -1,39 +1,42 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-         int l1 = nums1.size();
-         int l2 = nums2.size();
-         int total = l1 + l2;
+         int m = nums1.size(), n = nums2.size();
+         int total = m + n;
          int half = total/2;
 
-         if(l1 < l2){
-             vector<int> temp = nums1;
-             nums1 = nums2;
-             nums2 = temp;
+         if(m > n){
+            return findMedianSortedArrays(nums2,nums1);
          }
 
-         // [2,5,7,10,12,13,14]          total = 7 + 6 = 13
-         // [1,3,4,9,16,20]              half  = 13/2  = 6
-         int  B = nums2.size()/2;
-         int  A = nums1.size()/2;
+         // [1,3,4,9,16,20]              total = 7 + 6 = 13
+         // [2,5,7,10,12,13,14]          half  = 13/2  = 6
+         int l = 0, r = m;
 
-         while(true){
+         while(l <= r){
+             int i = (l + r)/2;
+             int j = half - i;
 
+             int Aleft  = i > 0 ? nums1[i-1] : INT_MIN;
+             int Aright = i < m ? nums1[i] : INT_MAX;
+             int Bleft  = j > 0 ? nums2[j-1] : INT_MIN;
+             int Bright = j < n ? nums2[j] : INT_MAX;
 
-
-
-
+             if(Aleft <= Bright && Bleft <= Aright){
+                 if(total % 2 == 0){
+                     return (max(Aleft,Bleft) + min(Aright,Bright)) / 2.0;
+                 }else{
+                     return min(Aright,Bright);
+                    //  return max(Aleft,Bleft);
+                 }
+             }else if(Aleft > Bright){
+                 r = i - 1;
+             }else{
+                 l = i + 1;
+             }
          }
 
-
-
-
-
-
-
-       return (double)nums1[0];
-
+       return -1;
     }
-
 
 };
