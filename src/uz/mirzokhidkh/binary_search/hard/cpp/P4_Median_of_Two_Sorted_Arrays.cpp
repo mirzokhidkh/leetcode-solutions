@@ -27,7 +27,6 @@ public:
                      return (max(Aleft,Bleft) + min(Aright,Bright)) / 2.0;
                  }else{
                      return min(Aright,Bright);
-                    //  return max(Aleft,Bleft);
                  }
              }else if(Aleft > Bright){
                  r = i - 1;
