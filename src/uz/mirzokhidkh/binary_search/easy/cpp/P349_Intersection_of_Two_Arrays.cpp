@@ -16,9 +16,9 @@ public:
 
     vector<int> helper(vector<int>& v1, vector<int>& v2){
         vector<int> res;
-        for(int i : v1){
-            if(find(res.begin(),res.end(),i)== res.end() && binarySearch(v2,i) != -1){
-                    res.push_back(i);
+        for(int val : v1){
+            if(find(res.begin(),res.end(),val)== res.end() && binarySearch(v2,val) != -1){
+                    res.push_back(val);
             }
         }
         return res;
