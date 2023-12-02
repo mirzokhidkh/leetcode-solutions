@@ -49,12 +49,12 @@ public class Part2 {
         System.out.println("SUM => " + sum);
     }
 
-    private static int getMaxNumByColor(String RED, int maxR, String cubeWithNum) {
-        if (cubeWithNum.contains(RED)) {
+    private static int getMaxNumByColor(String color, int max, String cubeWithNum) {
+        if (cubeWithNum.contains(color)) {
             cubeWithNum = cubeWithNum.trim();
-            int num = Integer.parseInt(cubeWithNum.substring(0, cubeWithNum.indexOf(RED) - 1));
-            maxR = Math.max(maxR, num);
+            int num = Integer.parseInt(cubeWithNum.substring(0, cubeWithNum.indexOf(color) - 1));
+            max = Math.max(max, num);
         }
-        return maxR;
+        return max;
     }
 }
