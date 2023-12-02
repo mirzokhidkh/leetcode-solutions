@@ -1,4 +1,4 @@
-package uz.mirzokhidkh.adventofcode.day03;
+package uz.mirzokhidkh.adventofcode.y2022.day03;
 
 import java.io.File;
 import java.io.IOException;
