@@ -19,13 +19,15 @@ public class Solution {
 //        System.out.println(name);
 //        System.out.println(newName);
 
-        String s = "two1nine";
+        String s = "qwerty";
+//        System.out.println( !s.equals(".") && s.matches("[^A-Za-z0-9 ]"));
 
-        System.out.println(s.indexOf("two"));
-        System.out.println(s.indexOf("nine"));
-
-//        int a = Integer.parseInt(""+s.charAt(0));
-//        System.out.println(a);
+        System.out.println(s.substring(0,2));
+//        StringBuilder builder = new StringBuilder();
+//
+//        builder.append(1);
+//
+//        System.out.println(builder.toString());
 
     }
 
