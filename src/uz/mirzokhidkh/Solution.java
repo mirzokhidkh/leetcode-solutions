@@ -1,7 +1,5 @@
 package uz.mirzokhidkh;
 
-import java.util.Arrays;
-
 public class Solution {
 
     //    Задано рекуррентное соотношение
@@ -12,56 +10,26 @@ public class Solution {
 //    Написать программу вычисляющую сумму первых 100 элементов последовательности.
 //    Ответом должен быть архив с кодом и значение вычисленной суммы поделенное по модулю на 10000.
     public static void main(String[] args) {
-        checkForMehtodGetFilladmlaf();
-    }
 
-    private static void checkForMehtodGetFilladmlaf() {
-        boolean check = check(
-                new String[]{null, "121313", "lsmlad"},//56a
-                new String[]{null, "", null},//56b
-                new String[]{null, null, null}//56c
-        );
+//        System.out.println(Integer.MAX_VALUE);
 
+//        String name = "baeldung";
+//        String newName = name.replace("dung", "----");
+//
+//        System.out.println(name);
+//        System.out.println(newName);
 
-        if (check){
-            check = check(
-                    new String[]{null, "121313", "lsmlad"},//57a
-                    new String[]{null, "", null},//57b
-                    new String[]{null, null, null}//57c
-            );
-        }else {
-            System.out.println("56a 56b da xato ");
-        }
+        String s = "qwerty";
+//        System.out.println( !s.equals(".") && s.matches("[^A-Za-z0-9 ]"));
 
-
-        if (check) {
-            check = check(
-                    new String[]{null, "121313", "lsmlad"},//58a
-                    new String[]{null, "", null},//58b
-                    new String[]{null, null, null}//58c
-            );
-        }  else {
-            System.out.println("57 larda  ");
-        }
-    }
-
-    public static boolean check(String[]... strs) {
-        int count = 0;
-
-        for (String[] str : strs) {
-            System.out.println(Arrays.toString(str));
-            for (String s : str) {
-                if (count == 1 && s != null) {
-                    System.out.println("ERROR");
-                    return false;
-                }
-                if (s != null) {
-                    count = 1;
-                    break;
-                }
-            }
-        }
-        return count == 1;
+        System.out.println(s.substring(0,2));
+//        StringBuilder builder = new StringBuilder();
+//
+//        builder.append(1);
+//
+//        System.out.println(builder.toString());
 
     }
+
+
 }

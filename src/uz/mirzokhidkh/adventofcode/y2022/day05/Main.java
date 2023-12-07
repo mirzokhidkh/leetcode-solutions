@@ -1,4 +1,4 @@
-package uz.mirzokhidkh.adventofcode.day05;
+package uz.mirzokhidkh.adventofcode.y2022.day05;
 
 import java.io.File;
 import java.io.FileWriter;
