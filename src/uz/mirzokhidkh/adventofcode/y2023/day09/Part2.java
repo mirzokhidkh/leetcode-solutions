@@ -18,7 +18,7 @@ public class Part2 {
         //2-> massivni farqlar sequence tuzib chiqamiz
         //3-> farqlar sequence ni hamma qiymatlari nol bo'lguncha Stackga qo'shib chiqamiz
         //4-> hammasi nol bo'lganda Stack emtpy bo'lguncha
-        // historyni keyingi qiymatini topish uchun Stackdan  oldingi sequencelarni oxirgi qiymati
+        // historyni keyingi qiymatini topish uchun Stackdan  oldingi sequencelarni 1-qiymatini
         // ketma-ket topib chiqamiz
 
         int sum = 0;
@@ -28,26 +28,20 @@ public class Part2 {
             //1
             int[] curSeq = Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-//            System.out.println(Arrays.toString(cueSeq));
-            while (!areAllZero(curSeq)) {
+            while (areAllZero(curSeq)) {
                 //2
                 int[] nextSeq = createNextSequence(curSeq);
 
                 //3
                 stack.push(curSeq[0]);
-
-//                System.out.println("nextSeq = " + Arrays.toString(nextSeq));
                 curSeq = nextSeq;
             }
-//            System.out.println("stack = " + stack);
             //4
-            sum += extraPolatePrevVal(stack);
+            sum += extrapolateBackwards(stack);
         }
 
 
         System.out.println(" the sum of these extrapolated values = " + sum);
-
-
     }
 
 

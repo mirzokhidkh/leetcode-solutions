@@ -2,6 +2,7 @@ package uz.mirzokhidkh.adventofcode.y2023.day09;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 import static uz.mirzokhidkh.adventofcode.y2023.day09.Util.*;
@@ -9,7 +10,7 @@ import static uz.mirzokhidkh.adventofcode.y2023.day09.Util.*;
 public class Part1 {
     public static void main(String[] args) throws IOException {
 
-        //https://adventofcode.com/2023/day/9/input
+        //https://adventofcode.com/2023/day/9/
         Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day09/input"));
 //        Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day09/test"));
 
@@ -28,22 +29,15 @@ public class Part1 {
             //1
             int[] curSeq = Arrays.stream(sc.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-//            System.out.println(Arrays.toString(cueSeq));
-            while (!areAllZero(curSeq)) {
+            while (areAllZero(curSeq)) {
                 int[] nextSeq = createNextSequence(curSeq);
-
                 //3
                 stack.push(curSeq[curSeq.length - 1]);
-
-//                System.out.println("nextSeq = " + Arrays.toString(nextSeq));
                 curSeq = nextSeq;
             }
-
-//            System.out.println("stack = " + stack);
             //4
-            sum += extrapolateNextVal(stack);
+            sum += extrapolateNext(stack);
         }
-
 
         System.out.println("The sum of these extrapolated values = " + sum);
     }
