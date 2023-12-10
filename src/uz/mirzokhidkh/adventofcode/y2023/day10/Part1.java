@@ -11,7 +11,6 @@ public class Part1 {
     public static final String SOUTH = "SOUTH";
     public static final String WEST = "WEST";
     public static final String EAST = "EAST";
-
     public static final char NORTH_SOUTH = '|';
     public static final char WEST_EAST = '-';
     public static final char NORTH_EAST = 'L';
@@ -21,8 +20,6 @@ public class Part1 {
 
     public static void main(String[] args) throws IOException {
 
-//        Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"));
-//        Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"));
 
 //        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"))
         char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"))
@@ -31,7 +28,6 @@ public class Part1 {
                 .toArray(char[][]::new);
 
 //        Arrays.stream(pipes).forEach(System.out::println);
-
 
         List<Character> north = new ArrayList<>(Arrays.asList('|', 'L', 'J'));
         List<Character> south = new ArrayList<>(Arrays.asList('|', '7', 'F'));
@@ -44,13 +40,13 @@ public class Part1 {
                 char ch = pipes[i][j];
                 if (ch == 'S') {
                     if (i > 0 && south.contains(pipes[i - 1][j])) {
-                        step = dfs(pipes, i - 1, j, SOUTH, 1) / 2;
+                        step = bfs(pipes, i - 1, j, SOUTH, 1) / 2;
                     } else if (i < pipes.length - 1 && north.contains(pipes[i + 1][j])) {
-                        step = dfs(pipes, i + 1, j, NORTH, 1) / 2;
+                        step = bfs(pipes, i + 1, j, NORTH, 1) / 2;
                     } else if (j > 0 && east.contains(pipes[i][j - 1])) {
-                        step = dfs(pipes, i, j - 1, EAST, 1) / 2;
+                        step = bfs(pipes, i, j - 1, EAST, 1) / 2;
                     } else if (j < pipes.length - 1 && west.contains(pipes[i][j + 1])) {
-                        step = dfs(pipes, i, j + 1, WEST, 1) / 2;
+                        step = bfs(pipes, i, j + 1, WEST, 1) / 2;
                     }
                 }
             }
@@ -61,24 +57,9 @@ public class Part1 {
     }
 
 
-    private static int dfs(char[][] pipes, int i, int j, String from, int c) {
+    private static int bfs(char[][] pipes, int i, int j, String from, int c) {
 
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{i, j, c});  // {row, column, steps}
-
-        while (!queue.isEmpty()) {
-
-
-            int size = queue.size();
-
-            if (pipes[i][j] == 'S') {
-//                    break;
-                return c;
-            }
-            int[] current = queue.poll();
-            i = current[0];
-            j = current[1];
-            c = current[2];
+        while (pipes[i][j] != 'S') {
             System.out.printf("pipes[%s][%s] = %s\n", i, j, pipes[i][j]);
 
             String to = getNextDir(pipes[i][j], from);
@@ -86,15 +67,14 @@ public class Part1 {
                 break;
             }
             int[] points = getNextPoints(to);
-//            if (points.length == 0) {
-//                break;
-//            }
-            queue.offer(new int[]{i + points[0], j + points[1], c + 1});  // {row, column, steps}
+
+            i += points[0];
+            j += points[1];
+            c++;
             from = reverseDir(to);
         }
 
         return c;
-//        return dfs(pipes, i + points[0], j + points[1], reverseDir(to), c + 1);
     }
 
 
@@ -141,8 +121,8 @@ public class Part1 {
     }
 
 
-    private static int[] getNextPoints(String to) {
-        switch (to) {
+    private static int[] getNextPoints(String dir) {
+        switch (dir) {
             case NORTH -> {
                 return new int[]{-1, 0};
             }
@@ -162,8 +142,8 @@ public class Part1 {
 
     }
 
-    private static String reverseDir(String to) {
-        switch (to) {
+    private static String reverseDir(String dir) {
+        switch (dir) {
             case NORTH -> {
                 return SOUTH;
             }
