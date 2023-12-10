@@ -12,13 +12,20 @@ public class Part1 {
     public static final String WEST = "WEST";
     public static final String EAST = "EAST";
 
+    public static final char NORTH_SOUTH = '|';
+    public static final char WEST_EAST = '-';
+    public static final char NORTH_EAST = 'L';
+    public static final char NORTH_WEST = 'J';
+    public static final char SOUTH_WEST = '7';
+    public static final char SOUTH_EAST = 'F';
+
     public static void main(String[] args) throws IOException {
 
 //        Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"));
 //        Scanner sc = new Scanner(new File("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"));
 
-        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"))
-//        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"))
+//        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"))
+        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"))
                 .stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
@@ -53,53 +60,77 @@ public class Part1 {
 
     }
 
+
     private static int dfs(char[][] pipes, int i, int j, String from, int c) {
-        if (pipes[i][j] == 'S') return c;
 
-        String to = getNextDir(pipes[i][j], from);
-//        if (to==null){
-//
-//        }
-        int[] points = getNextPoints(to);
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{i, j, c});  // {row, column, steps}
+
+        while (!queue.isEmpty()) {
 
 
-        return dfs(pipes, i + points[0], j + points[1], reverseDir(to), c + 1);
+            int size = queue.size();
+
+            if (pipes[i][j] == 'S') {
+//                    break;
+                return c;
+            }
+            int[] current = queue.poll();
+            i = current[0];
+            j = current[1];
+            c = current[2];
+            System.out.printf("pipes[%s][%s] = %s\n", i, j, pipes[i][j]);
+
+            String to = getNextDir(pipes[i][j], from);
+            if (to == null) {
+                break;
+            }
+            int[] points = getNextPoints(to);
+//            if (points.length == 0) {
+//                break;
+//            }
+            queue.offer(new int[]{i + points[0], j + points[1], c + 1});  // {row, column, steps}
+            from = reverseDir(to);
+        }
+
+        return c;
+//        return dfs(pipes, i + points[0], j + points[1], reverseDir(to), c + 1);
     }
 
 
     private static String getNextDir(char c, String from) {
         switch (c) {
-            case '|' -> {
+            case NORTH_SOUTH -> {
                 if (Objects.equals(from, NORTH)) {
                     return SOUTH;
                 }
                 return NORTH;
             }
-            case '-' -> {
+            case WEST_EAST -> {
                 if (Objects.equals(from, WEST)) {
                     return EAST;
                 }
                 return WEST;
             }
-            case 'L' -> {
+            case NORTH_EAST -> {
                 if (Objects.equals(from, NORTH)) {
                     return EAST;
                 }
                 return NORTH;
             }
-            case 'J' -> {
+            case NORTH_WEST -> {
                 if (Objects.equals(from, NORTH)) {
                     return WEST;
                 }
                 return NORTH;
             }
-            case '7' -> {
+            case SOUTH_WEST -> {
                 if (Objects.equals(from, SOUTH)) {
                     return WEST;
                 }
                 return SOUTH;
             }
-            case 'F' -> {
+            case SOUTH_EAST -> {
                 if (Objects.equals(from, SOUTH)) {
                     return EAST;
                 }
@@ -124,8 +155,11 @@ public class Part1 {
             case EAST -> {
                 return new int[]{0, 1};
             }
+            default -> {
+                return new int[]{};
+            }
         }
-        return new int[]{};
+
     }
 
     private static String reverseDir(String to) {

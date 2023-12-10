@@ -30,7 +30,7 @@ public class Solution {
 //        builder.append(1);
 //
 //        System.out.println(builder.toString());
-        System.out.println(Objects.equals(null, "A"));
+        System.out.printf("pipes[%s][%s] = %s", 1, 1,11);
     }
 
 
