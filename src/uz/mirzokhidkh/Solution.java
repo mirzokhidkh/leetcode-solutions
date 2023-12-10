@@ -1,5 +1,7 @@
 package uz.mirzokhidkh;
 
+import java.util.Objects;
+
 public class Solution {
 
     //    Задано рекуррентное соотношение
@@ -19,16 +21,16 @@ public class Solution {
 //        System.out.println(name);
 //        System.out.println(newName);
 
-        String s = "qwerty";
+//        String s = "qwerty";
 //        System.out.println( !s.equals(".") && s.matches("[^A-Za-z0-9 ]"));
 
-        System.out.println(s.substring(0,2));
+//        System.out.println(s.substring(0,2));
 //        StringBuilder builder = new StringBuilder();
 //
 //        builder.append(1);
 //
 //        System.out.println(builder.toString());
-
+        System.out.println(Objects.equals(null, "A"));
     }
 
 
