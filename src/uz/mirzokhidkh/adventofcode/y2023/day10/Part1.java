@@ -21,8 +21,8 @@ public class Part1 {
     public static void main(String[] args) throws IOException {
 
 
-//        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"))
-        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"))
+        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/test"))
+//        char[][] pipes = Files.readAllLines(Paths.get("src/uz/mirzokhidkh/adventofcode/y2023/day10/input"))
                 .stream()
                 .map(String::toCharArray)
                 .toArray(char[][]::new);
@@ -34,19 +34,22 @@ public class Part1 {
         List<Character> west = new ArrayList<>(Arrays.asList('-', 'L', 'F'));
         List<Character> east = new ArrayList<>(Arrays.asList('|', 'J', '7'));
 
+        boolean[][] visited = new boolean[pipes.length][pipes[0].length];
+
         int step = 0;
         for (int i = 0; i < pipes.length; i++) {
             for (int j = 0; j < pipes[0].length; j++) {
                 char ch = pipes[i][j];
                 if (ch == 'S') {
+                    visited[i][j] = true;
                     if (i > 0 && south.contains(pipes[i - 1][j])) {
-                        step = bfs(pipes, i - 1, j, SOUTH, 1) / 2;
+                        step = bfs(pipes, i - 1, j, SOUTH, 1, visited) / 2;
                     } else if (i < pipes.length - 1 && north.contains(pipes[i + 1][j])) {
-                        step = bfs(pipes, i + 1, j, NORTH, 1) / 2;
+                        step = bfs(pipes, i + 1, j, NORTH, 1, visited) / 2;
                     } else if (j > 0 && east.contains(pipes[i][j - 1])) {
-                        step = bfs(pipes, i, j - 1, EAST, 1) / 2;
+                        step = bfs(pipes, i, j - 1, EAST, 1, visited) / 2;
                     } else if (j < pipes.length - 1 && west.contains(pipes[i][j + 1])) {
-                        step = bfs(pipes, i, j + 1, WEST, 1) / 2;
+                        step = bfs(pipes, i, j + 1, WEST, 1, visited) / 2;
                     }
                 }
             }
@@ -54,14 +57,54 @@ public class Part1 {
 
         System.out.println(step);
 
+        int count = 0;
+        boolean isWithinLoop = false;
+        for (int i = 0; i < visited.length; i++) {
+            int k = 0;
+            for (int j = 0; j < visited[0].length; j++) {
+                if (visited[i][j]) {
+                    System.out.print("* ");
+
+                    if (!isWithinLoop) {
+                        isWithinLoop = true;
+                    } else {
+                        isWithinLoop = false;
+                        count += k;
+                        k = 0;
+                    }
+
+                } else {
+
+                    if (isWithinLoop) {
+//                        System.out.printf("pipes[%s][%s]-", i, j);
+                        System.out.print("1 ");
+
+                        k++;
+                    } else {
+
+                        System.out.print(". ");
+                    }
+
+                }
+
+
+            }
+
+            isWithinLoop = false;
+            System.out.println();
+        }
+
+        System.out.println("tiles are enclosed by the loop = " + count);
+
+
     }
 
 
-    private static int bfs(char[][] pipes, int i, int j, String from, int c) {
+    private static int bfs(char[][] pipes, int i, int j, String from, int c, boolean[][] visited) {
 
         while (pipes[i][j] != 'S') {
-            System.out.printf("pipes[%s][%s] = %s\n", i, j, pipes[i][j]);
-
+//            System.out.printf("pipes[%s][%s] = %s\n", i, j, pipes[i][j]);
+            visited[i][j] = true;
             String to = getNextDir(pipes[i][j], from);
             if (to == null) {
                 break;
