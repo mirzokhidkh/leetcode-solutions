@@ -10,35 +10,38 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Example {
 
-    public static void main(String[] args) throws MalformedURLException, UnsupportedEncodingException, InterruptedException {
+    public static void main(String[] args) {
+//
+//        System.out.println('a'>=97);
+//
+//
+//        Stack<Integer> stack= new Stack<>();
+//        for (int i = 0; i <10 ; i++) {
+//
+//            if (i==1){
+//                stack.push(i);
+//            }
+//        }
+//
+//
+//        System.out.println(stack);
 
 
-//        String str = "2016-01-28T19:55:25.7523188+01:00";
-//        ZonedDateTime parse = ZonedDateTime.parse(str);
-//        System.out.println(ZonedDateTime.parse(str));
+        Map<Integer,Integer> map = new HashMap<>();
 
-//        String str2 = "2021-08-02";
-//        String str1 = "2021-08-02";
-//        String str3 = "2021-08-02";
-//        LocalDate localDate = LocalDate.parse(str2);
-//        System.out.println(localDate);
+        map.put(1,1);
+        map.put(2,2);
+        map.put(3,3);
 
-
-//        System.out.println(str);
-
-
-        HashMap<Integer,Integer> map =  new HashMap<>();
-        map.put(2,4);
-        map.put(1,4);
-        map.put(3,9);
-
-        System.out.println(map.get(4));
+        System.out.println(map);
 
 
     }
+
 
 
 }

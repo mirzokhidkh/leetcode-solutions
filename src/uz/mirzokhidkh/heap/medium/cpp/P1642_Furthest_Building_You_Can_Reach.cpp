@@ -1,51 +1,34 @@
 #include <algorithm>
 class Solution {
 public:
-    int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
-        priority_queue<int> maxHeap;
+      int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
+        int n = heights.size();
+        if(n == 1) return 0;
 
-        //PLAN
-        //find all variations and push index to maxHeap step by step until there are no ladders and bricks
-        //finally return the top of th maxHeap which the furthest building index
+        priority_queue<int> pq;
+        int i = 0;
+        for( i = 0; i < n-1; i++){
+            int diff = heights[i+1] - heights[i];
+            if(diff > 0){
+                if(ladders > 0){
+                    pq.push(-diff);
+                    ladders--;
+                }else if(!pq.empty() && diff > -pq.top()){
+                    bricks += pq.top();
+                    pq.pop();
+                    pq.push(-diff);
+                }else{
+                    bricks -= diff;
+                }
 
-        helper(heights,0,bricks,ladders,maxHeap)
-        return maxHeap.top();
+                if(bricks < 0){
+                    return i;
+                }
+
+            }
+        }
+
+        return n-1;
     }
-
-    int helper(vector<int>& heights,int i, int bricks, int ladders){
-
-
-    }
-
 
 };
-
-
-//class Solution {
-//public:
-//    int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
-//
-//        int i;
-//        for(i=0; i<heights.size()-1; i++){
-//            if(heights[i+1] <= heights[i]){
-//                continue;
-//            }
-//
-//            if(bricks == 0 && ladders == 0 ){
-//                return i;
-//            }
-//
-//
-//            int dif = heights[i+1]-heights[i];
-//
-//            if(bricks >= dif){
-//                bricks -= dif;
-//            }else if(ladders != 0){
-//                --ladders;
-//            }
-//        }
-//
-//        return i;
-//    }
-//};
-//
