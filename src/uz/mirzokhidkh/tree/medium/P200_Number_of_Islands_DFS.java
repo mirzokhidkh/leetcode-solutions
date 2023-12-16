@@ -27,7 +27,7 @@ public class P200_Number_of_Islands_DFS {
 
     private static int[][] directions = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
-    public static int numIslands(char[][] grid) {
+    private static int numIslands(char[][] grid) {
         int count = 0;
 
         boolean[][] visited = new boolean[grid.length][grid[0].length];
@@ -43,7 +43,7 @@ public class P200_Number_of_Islands_DFS {
         return count;
     }
 
-    public static void dfs(int i, int j, char[][] grid, boolean[][] visited) {
+    private static void dfs(int i, int j, char[][] grid, boolean[][] visited) {
         if (!isValidNeighbour(i, j, grid, visited))
             return;
         visited[i][j] = true;
@@ -52,7 +52,7 @@ public class P200_Number_of_Islands_DFS {
         }
     }
 
-    public static boolean isValidNeighbour(int i, int j, char[][] grid, boolean[][] visited) {
+    private static boolean isValidNeighbour(int i, int j, char[][] grid, boolean[][] visited) {
         return i >= 0 && i < grid.length && j >= 0 && j < grid[0].length && grid[i][j] != '0' && !visited[i][j];
     }
 

@@ -26,7 +26,7 @@ public class P200_Number_of_Islands {
     }
 
 
-    public void bfs(int i, int j, char[][] grid, boolean[][] visited) {
+    private void bfs(int i, int j, char[][] grid, boolean[][] visited) {
 
         Queue<List<Integer>> queue = new LinkedList<>();
         queue.offer(Arrays.asList(i, j));

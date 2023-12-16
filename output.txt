@@ -1,0 +1,115 @@
+1 ===>  1 - Maven
+2 ===>  2 - Open The Project with IntelliJ
+3 ===>  3 - Maven Parent Module
+4 ===>  1 - Spring Cloud
+5 ===>  2 - Create Your First Microservice
+6 ===>  3 - Model Controller and Service
+7 ===>  4 - Postgres and PGAdmin on Docker
+8 ===>  5 - Connecting to DB
+9 ===>  1 - Fraud Microservice
+10 ===>  2 - Database Setup for Fraud
+11 ===>  3 - Fraud Controller Service and Repository
+12 ===>  4 - RestTemplate
+13 ===>  5 - Testing Microservice Communication
+14 ===>  1 - Service Discovery
+15 ===>  2 - Spring Cloud Dependency
+16 ===>  3 - Setting up Eureka Server
+17 ===>  4 - Dashboard
+18 ===>  5 - Eureka Clients
+19 ===>  6 - @LoadBalanced
+20 ===>  1 - Open Feign
+21 ===>  2 - Feign client Feign
+22 ===>  3 - Using Fegin Client
+23 ===>  4 - Microservice Communication With Feign
+24 ===>  1 - Exercise
+25 ===>  2 - Solution
+26 ===>  1 - Distributed Tracing
+27 ===>  2 - Adding Sleuth
+28 ===>  3 - Zipkin
+29 ===>  4 - Zipkin Container
+30 ===>  5 - Spring Cloud Sleuth Zipkin
+31 ===>  6 - Zipkin Dashboard
+32 ===>  1 - What are Load Balencers
+33 ===>  2 - Load Balancer Algorithms
+34 ===>  3 - Load Balancer Health Checks
+35 ===>  4 - Spring Cloud Gateway
+36 ===>  5 - Bootstrap API Gateway
+37 ===>  6 - Configuring API Gateway
+38 ===>  7 - API Gateway in Action
+39 ===>  1 - Why a message queue
+40 ===>  2 - Simulate Slow Response
+41 ===>  3 - AMQP & RabbitMQ
+42 ===>  4 - Kafka RabbitMQ and SQS
+43 ===>  5 - AMQP Exchange Types
+44 ===>  1 - Rabbit MQ Container
+45 ===>  2 - AMQPTemplate and JacksonConverter
+46 ===>  3 - SimpleRabbitListenerContainerFactory
+47 ===>  4 - Notification Queue Configuration
+48 ===>  5 - Queue Topic and Binding
+49 ===>  6 - Message Producer
+50 ===>  7 - Publishing Messages
+51 ===>  8 - Customer Microservice Publishing Messages To Queue
+52 ===>  9 - @RabbitListener
+53 ===>  12 - We made it. Our code is Asynchronous
+54 ===>  3 - Spring Boot Maven Plugin
+55 ===>  2 - Maven Compiler Plugin
+56 ===>  4 - Installing Root and Individual Modules with Maven
+57 ===>  5 - Running all Jars
+58 ===>  2 - What is Docker
+59 ===>  3 - Docker Images and Containers
+60 ===>  4 - Docker Architecture
+61 ===>  5 - Docker Registries
+62 ===>  6 - Docker Login
+63 ===>  7 - Spring Boot Maven Plugin and Jib
+64 ===>  8 - Jib Maven Plugin
+65 ===>  9 - Jib Sub Module Configuration
+66 ===>  10 - Build and Push
+67 ===>  11 - Exercise
+68 ===>  12 - Exercise Solution
+69 ===>  13 - Adding Eureka Server and ApiGW to Docker Compose
+70 ===>  14 - Docker Network
+71 ===>  15 - Spring Profiles
+72 ===>  16 - ApiGW and Eureka Server Docker Containers
+73 ===>  17 - Exercise 2
+74 ===>  18 - Exercise 2 Solution
+75 ===>  2 - What is Kubernetes
+76 ===>  3 - Master and Control Plane
+77 ===>  4 - Worker Nodes
+78 ===>  5 - Running Kubernetes Clusters
+79 ===>  6 - Minikube
+80 ===>  7 - Installing Kubectl
+81 ===>  8 - Kubernetes Hello World
+82 ===>  9 - Pods
+83 ===>  10 - Deployments
+84 ===>  11 - Services
+85 ===>  12 - Service Discovery
+86 ===>  1 - IntelliJ k8s Plugin
+87 ===>  2 - Never Deploy Postgres on k8s. Only for local testing
+88 ===>  3 - Postgres YAMLs
+89 ===>  4 - Postgres Running in k8s
+90 ===>  5 - Exercise
+91 ===>  6 - Exercise Sol
+92 ===>  3 - Disabling Eureka
+93 ===>  4 - Refactor Feign Clients
+94 ===>  5 - Adding SPRING_PROFILES_ACTIVE=default
+95 ===>  6 - Kube Profile
+96 ===>  7 - Building new Images and Testing Docker Compose
+97 ===>  1 - Section Overview
+98 ===>  2 - Customer YAMLs
+99 ===>  3 - Customer Up in Running in k8s
+100 ===>  5 - Exercise Solution
+101 ===>  6 - We done it. Microservices running in k8s
+102 ===>  0 - What is Kafka
+103 ===>  1 - Kafka Broker
+104 ===>  2- Bootstrap Project
+105 ===>  3 - Topic
+106 ===>  4 - Kafka Produder Config
+107 ===>  5 - Kafka Template Send
+108 ===>  6 - Kafka Consumer
+109 ===>  7 - ConsumerConfig
+110 ===>  8 - @KafkaListener
+111 ===>  9 - Restful Api and Kafka Integration
+112 ===>  11 - Trusted Packages
+113 ===>  10 - Custom Objects
+114 ===>  12 - Deployment and Managed Kafka
+115 ===>  13 - Spring for Apache Kafka Documetation
