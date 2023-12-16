@@ -30,7 +30,33 @@ public class Solution {
 //        builder.append(1);
 //
 //        System.out.println(builder.toString());
-        System.out.printf("pipes[%s][%s] = %s", 1, 1,11);
+//        System.out.printf("pipes[%s][%s] = %s", 1, 1,11);
+
+
+//        int i = 73;
+//
+//        switch (i){
+//            case 1,2:
+//                System.out.println(i+"case-1-2");
+//                break;
+//            case 3:
+//                System.out.println(i+"-case-3");
+//            default:
+//                System.out.println("WS");
+//        }
+
+        char i = '/';
+
+        switch (i){
+            case '/':
+                System.out.println(i+"case-1");
+                break;
+            case '\\':
+                System.out.println(i+"-case-2");
+                break;
+            default:
+                System.out.println("WS");
+        }
     }
 
 
