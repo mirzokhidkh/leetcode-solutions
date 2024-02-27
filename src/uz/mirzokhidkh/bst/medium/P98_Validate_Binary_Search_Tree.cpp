@@ -11,18 +11,21 @@
  */
 class Solution {
 public:
-    bool isValidBST(TreeNode* root) {
+     bool isValidBST(TreeNode* root) {
+       return isValidBST(root, nullptr, nullptr);
+     }
+    bool isValidBST(TreeNode* root,TreeNode* minNode,TreeNode* maxNode) {
         if(root == nullptr) return true;
+        int val = root->val;
 
-        TreeNode *left = root->left;
-        if( left != nullptr && (root->val < left->val)) return false;
-        bool isValidLeft = isValidBST(left);
 
-        TreeNode *right = root->right;
-        if(right != nullptr && (root->val > right->val)) return false;
-        bool isValidRight= isValidBST(right);
+        if(minNode  && (minNode->val >= val)) return false;
+        if(maxNode && (maxNode->val <= val)) return false;
 
-        return isValidLeft && isValidRight;
 
+        return isValidBST(root->left,minNode,root) && isValidBST(root->right,root,maxNode);
     }
+
+
+
 };
