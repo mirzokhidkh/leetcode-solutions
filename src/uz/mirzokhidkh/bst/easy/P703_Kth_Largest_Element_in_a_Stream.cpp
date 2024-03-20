@@ -12,6 +12,7 @@ private:
     TreeNode *root;
     int k;
     int num;
+    int n;
 
     void addBST(int val){
 
@@ -20,12 +21,7 @@ private:
 
         while(cur){
             prev = cur;
-            if (val < cur->val) {
-                cur = cur->left;
-            } else {
-                cur = cur->right;
-            }
-            // cur = (val < cur->val) ? cur->left : cur->right;
+            cur = (val < cur->val) ? cur->left : cur->right;
         }
 
         if(prev){
@@ -38,25 +34,34 @@ private:
             root = new TreeNode(val);
         }
 
-        // searchK(root,k);
+        ++n;
         return;
 
     }
 
 
-    void searchK(TreeNode* node,int k){
-        if(!node) return;
-        searchK(node->left,k--);
-        if(k == 0){
-            num = node->val;
+    void searchK(TreeNode* node,int& k, bool &found){
+        if(node){
+
+            searchK(node->left,k,found);
+
+            if(!found && k == 0){
+                num = node->val;
+                found = true;
+                return;
+            }
+            --k;
+            searchK(node->right,k,found);
         }
-        searchK(node->left,k--);
         return;
     }
+
 
 public:
     KthLargest(int k, vector<int>& nums) {
         root = nullptr;
+        num = 0;
+        n = 0;
         for(int i=0; i < nums.size(); i++){
             addBST(nums[i]);
         }
@@ -66,7 +71,9 @@ public:
 
     int add(int val) {
         addBST(val);
-        searchK(root,k);
+        int m = n-k;
+        bool found = false;
+        searchK(root,m,found);
         return num;
     }
 
