@@ -14,6 +14,20 @@ public class Solution {
 //    Ответом должен быть архив с кодом и значение вычисленной суммы поделенное по модулю на 10000.
     public static void main(String[] args) {
 
+        System.out.println(8 << 1);
+        System.out.println(8 >> 1);
+        System.out.println(3  >> 1);
+        System.out.println(5  >> 1);
+        System.out.println(4  >> 1);
+        System.out.println(6 << 1);
+
+        int n =3;
+        for (int i = 31; i >= 0; i--) {
+            int bit = (n >> i) & 1;
+            System.out.print(bit+"-");
+        }
+
+
 
     }
 
