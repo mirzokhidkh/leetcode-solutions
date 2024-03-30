@@ -13,7 +13,6 @@ private:
 public:
     WordDictionary() {
         root = new TrieNode();
-
     }
 
     void addWord(string word) {
