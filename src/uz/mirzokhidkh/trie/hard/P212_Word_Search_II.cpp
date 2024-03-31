@@ -29,44 +29,43 @@ public:
             addWord(word);
         }
 
-        vector<string> res;
+        unordered_set<string> set;
 
         for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[0].size(); j++){
                 string word;
-                // word.push_back(board[i][j]);
-                dfs(i,j,board,root,res,word);
+                dfs(i,j,board,root,set,word);
             }
         }
 
-        return res;
+        return vector<string>(set.begin(),set.end());
     }
 
-    void dfs(int i, int j,vector<vector<char>>& grid, TrieNode* node, vector<string>& res, string word){
-      if(i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) return;
+    void dfs(int i, int j,vector<vector<char>>& grid, TrieNode* node, unordered_set<string>& set, string& word){
+        if(i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size() || grid[i][j] == '#' || !node->children.count(grid[i][j]))
+            return;
 
-      if(node->children.size()){
-        for(pair p : node->children){
-            if(p.first == grid[i][j]){
-                word.push_back(grid[i][j]);
-                grid[i][j] = '#';
+        int temp = grid[i][j];
+        node = node->children[temp];
+        word.push_back(temp);
+        grid[i][j] = '#';
 
-                // cout<<word<<"-"<<endl;
-
-                if(p.second->isWord && !count(res.begin(), res.end(), word)){
-                    // cout<<word<<endl;
-                    res.push_back(word);
-                }
-                dfs(i-1,j,grid,p.second,res,word);
-                dfs(i,j+1,grid,p.second,res,word);
-                dfs(i+1,j,grid,p.second,res,word);
-                dfs(i,j-1,grid,p.second,res,word);
-
-                grid[i][j] = p.first;
-
-            }
+        if(node->isWord){
+            set.insert(word);
         }
-      }
+
+        vector<pair<int,int>> directions{{-1,0},{0,1},{1,0},{0,-1}}; //up,right,down,left
+
+        for(auto& dir: directions){
+            int ni = i + dir.first, nj = j + dir.second;
+            dfs(ni,nj,grid,node,set,word);
+        }
+
+        // cout<<"["<<i<<"]["<<j<<"] = "<<word<<endl;
+
+        grid[i][j] = temp;
+        word.pop_back();
+
     }
 
 
