@@ -24,11 +24,7 @@ public:
                     res.push_back({p.second,i});
                 }
             }
-            
-
             map[word] = i;
-
-           
         }
         return res;
     }
@@ -41,4 +37,6 @@ public:
         }
         return true;
     }
+
+
 };

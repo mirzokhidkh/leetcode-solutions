@@ -29,19 +29,19 @@ public:
             addWord(word);
         }
 
-        unordered_set<string> set;
+        vector<string> res;
 
         for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[0].size(); j++){
                 string word;
-                dfs(i,j,board,root,set,word);
+                backtracking(i,j,board,root,res,word);
             }
         }
 
-        return vector<string>(set.begin(),set.end());
+        return res;
     }
 
-    void dfs(int i, int j,vector<vector<char>>& grid, TrieNode* node, unordered_set<string>& set, string& word){
+    void backtracking(int i, int j,vector<vector<char>>& grid, TrieNode* node, vector<string>& res, string& word){
         if(i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size() || grid[i][j] == '#' || !node->children.count(grid[i][j]))
             return;
 
@@ -51,14 +51,15 @@ public:
         grid[i][j] = '#';
 
         if(node->isWord){
-            set.insert(word);
+            node->isWord = false;
+            res.push_back(word);
         }
 
-        vector<pair<int,int>> directions{{-1,0},{0,1},{1,0},{0,-1}}; //up,right,down,left
+        vector<pair<int,int>> directions{{-1,0},{0,1},{1,0},{0,-1}}; //clock direction ->  up,right,down,left
 
         for(auto& dir: directions){
             int ni = i + dir.first, nj = j + dir.second;
-            dfs(ni,nj,grid,node,set,word);
+            backtracking(ni,nj,grid,node,res,word);
         }
 
         // cout<<"["<<i<<"]["<<j<<"] = "<<word<<endl;
