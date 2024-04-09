@@ -79,14 +79,14 @@ public:
     }
 
 
-
-    bool isPalindrome(string& s){
-        int l = 0, r = s.length()-1;
-        while(l < r){
-            if(s[l++] != s[r--]) return false;
-        }
-        return true;
-    }
+//
+//    bool isPalindrome(string& s){
+//        int l = 0, r = s.length()-1;
+//        while(l < r){
+//            if(s[l++] != s[r--]) return false;
+//        }
+//        return true;
+//    }
 
     bool isPalindrome(string& word, int front, int back) {
         while (front < back) {
